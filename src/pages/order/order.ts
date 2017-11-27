@@ -1,3 +1,5 @@
+import {GoogleMapPage} from "../google-map/google-map";
+
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
@@ -15,8 +17,12 @@ import { NavController, NavParams } from 'ionic-angular';
 export class OrderPage {
   orderType:string;
   customerName:string;
+  deliveryLocation:string;
+  deliveryType:string;
+  deliveryDetail:any;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    
+    this.deliveryDetail = {homeNumber:"",landmarks:""}
   }
 
   ionViewDidLoad() {
@@ -24,17 +30,15 @@ export class OrderPage {
     console.log('ionViewDidLoad OrderPage');
   }
 
-  segmentChanged(event){
-    switch (event._value) {
-      case "restaurant":
-        
-        break;
-      case "delivery":
-        
-        break;
-      default:
-        break;
-    }
+  openGoogleMap(){
+    this.navCtrl.push(GoogleMapPage, {callback: this.getLocation});
+  }
+
+  getLocation = (data)=>{
+    return new Promise((resolve, reject) => {
+      this.deliveryLocation = data;      
+      resolve();
+    });
   }
 
 }

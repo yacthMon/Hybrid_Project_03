@@ -1,0 +1,17 @@
+<ion-header>
+    <ion-navbar>
+      <ion-title>
+        Map
+      </ion-title>
+      <ion-buttons end>
+        <button ion-button (click)="addMarker()"><ion-icon name="add"></ion-icon>Add Marker</button>
+      </ion-buttons>
+    </ion-navbar>
+  </ion-header>
+   
+  <ion-content>
+    <div #map id="map"  style="height:100vh;"></div> 
+    <ion-footer>
+        <button ion-button class="button-bottom" (click)="selectedPlace()">ตกลง</button>
+    </ion-footer>
+  </ion-content>

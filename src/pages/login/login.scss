@@ -1,3 +1,30 @@
 page-login {
+    .background-image {
+        background-image: url('/images/alison-marras-361028.jpg');
+        background-size: cover;
+        -webkit-filter: blur(5px);
+        -moz-filter: blur(5px);
+        -o-filter: blur(5px);
+        -ms-filter: blur(5px);
+        filter: blur(5px);
+        height: 800px;
+        left: 0;
+        position: fixed;
+        right: 0;
+        z-index: 1;
+      }
 
+      .content {
+        margin: auto;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.35);
+        border-radius: 3px;
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        left: 0;
+        position: fixed;
+        right: 0;
+        z-index: 2;
+        padding: 0 10px;
+      }
 }

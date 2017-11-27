@@ -8,6 +8,7 @@ import { OrderPage } from '../pages/order/order';
 import { GoogleMapPage } from '../pages/google-map/google-map';
 import { QrcodeScanPage } from '../pages/qrcode-scan/qrcode-scan'
 import { LoginPage } from '../pages/login/login'; 
+import { IndexPage } from '../pages/index/index';
 
 import { Geolocation } from '@ionic-native/geolocation';
 import { Facebook } from '@ionic-native/facebook';
@@ -22,7 +23,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     OrderPage,
     GoogleMapPage,
     QrcodeScanPage,
-    LoginPage
+    LoginPage,
+    IndexPage
   ],
   imports: [
     BrowserModule,
@@ -35,7 +37,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     OrderPage,
     GoogleMapPage,
     QrcodeScanPage,
-    LoginPage
+    LoginPage,
+    IndexPage
   ],
   providers: [
     StatusBar,

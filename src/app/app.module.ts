@@ -10,6 +10,7 @@ import { QrcodeScanPage } from '../pages/qrcode-scan/qrcode-scan'
 import { LoginPage } from '../pages/login/login'; 
 
 import { Geolocation } from '@ionic-native/geolocation';
+import { Facebook } from '@ionic-native/facebook';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -40,6 +41,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     StatusBar,
     SplashScreen,
     Geolocation,
+    Facebook,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

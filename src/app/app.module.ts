@@ -12,6 +12,8 @@ import { FirstPage } from '../pages/first/first';
 
 import { Geolocation } from '@ionic-native/geolocation';
 import { Facebook } from '@ionic-native/facebook';
+import { QRScanner } from '@ionic-native/qr-scanner';
+
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -45,6 +47,7 @@ import { UserDataProvider } from '../providers/user-data/user-data';
     StatusBar,
     SplashScreen,
     Geolocation,
+    QRScanner,
     Facebook,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserDataProvider

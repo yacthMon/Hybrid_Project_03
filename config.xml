@@ -86,4 +86,5 @@
         <variable name="APP_NAME" value="Hybrid_Final_Project" />
     </plugin>
     <engine name="android" spec="~6.2.3" />
+    <plugin name="cordova-plugin-qrscanner" spec="~2.5.0" />
 </widget>

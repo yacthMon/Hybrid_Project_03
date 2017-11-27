@@ -6,6 +6,8 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { OrderPage } from '../pages/order/order';
 import { GoogleMapPage } from '../pages/google-map/google-map';
+import { QrcodeScanPage } from '../pages/qrcode-scan/qrcode-scan'
+
 import { Geolocation } from '@ionic-native/geolocation';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -16,7 +18,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MyApp,
     HomePage,
     OrderPage,
-    GoogleMapPage
+    GoogleMapPage,
+    QrcodeScanPage
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MyApp,
     HomePage,
     OrderPage,
-    GoogleMapPage
+    GoogleMapPage,
+    QrcodeScanPage
   ],
   providers: [
     StatusBar,

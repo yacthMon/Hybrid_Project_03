@@ -6,6 +6,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { OrderPage } from '../pages/order/order';
 import { QrcodeScanPage } from '../pages/qrcode-scan/qrcode-scan';
+import { LoginPage } from '../pages/login/login'; 
 
 @Component({
   templateUrl: 'app.html'
@@ -13,7 +14,7 @@ import { QrcodeScanPage } from '../pages/qrcode-scan/qrcode-scan';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = QrcodeScanPage;
+  rootPage: any = LoginPage;
 
   pages: Array<{title: string, component: any}>;
 

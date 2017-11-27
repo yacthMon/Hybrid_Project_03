@@ -42,4 +42,10 @@ export class LoginPage {
       console.log("Facebook get Data error ", err);
     });
   }
+
+  fakeLogin(){
+    this.userData.name = "yacth_Mon"
+    this.userData.profilePictureURL = "https://scontent.xx.fbcdn.net/v/t1.0-1/p64x64/12043031_955783051127718_3862466570486282121_n.jpg?oh=502c247dd4c2570331db98068f71cf42&oe=5AA10C4E";
+    this.navCtrl.setRoot(FirstPage);
+  }
 }

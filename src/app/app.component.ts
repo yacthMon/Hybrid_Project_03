@@ -7,6 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { OrderPage } from '../pages/order/order';
 import { QrcodeScanPage } from '../pages/qrcode-scan/qrcode-scan';
 import { LoginPage } from '../pages/login/login'; 
+import { UserDataProvider } from '../providers/user-data/user-data';
 
 @Component({
   templateUrl: 'app.html'
@@ -18,7 +19,7 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public userData: UserDataProvider) {
     this.initializeApp();
 
     this.pages = [

@@ -1,7 +1,16 @@
 <ion-menu [content]="content">
   <ion-header>
     <ion-toolbar>
-      <ion-title>Menu</ion-title>
+        <ion-item>
+            <ion-avatar item-start>
+                <img src="{{userData.profilePictureURL}}">
+              </ion-avatar>
+            <!-- <ion-thumbnail item-start>
+                <img src="{{userData.profilePictureURL}}">
+            </ion-thumbnail> -->
+            <h2>{{userData.name}}</h2>
+            <p>KMUTT</p>
+          </ion-item>
     </ion-toolbar>
   </ion-header>
 

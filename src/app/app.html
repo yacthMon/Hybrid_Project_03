@@ -1,16 +1,16 @@
 <ion-menu [content]="content">
   <ion-header>
     <ion-toolbar>
-        <ion-item>
-            <ion-avatar item-start>
-                <img src="{{userData.profilePictureURL}}">
-              </ion-avatar>
-            <!-- <ion-thumbnail item-start>
+      <ion-item>
+        <ion-avatar item-start>
+          <img src="{{userData.profilePictureURL}}">
+        </ion-avatar>
+        <!-- <ion-thumbnail item-start>
                 <img src="{{userData.profilePictureURL}}">
             </ion-thumbnail> -->
-            <h2>{{userData.name}}</h2>
-            <p>KMUTT</p>
-          </ion-item>
+        <h2>{{userData.name}}</h2>
+        <p>KMUTT</p>
+      </ion-item>
     </ion-toolbar>
   </ion-header>
 
@@ -18,6 +18,9 @@
     <ion-list>
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
         {{p.title}}
+      </button>
+      <button menuClose ion-item *ngIf="userData.name" (click)="doLogout()">
+        Logout
       </button>
     </ion-list>
   </ion-content>

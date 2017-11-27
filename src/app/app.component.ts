@@ -24,7 +24,8 @@ export class MyApp {
     this.pages = [
       { title: 'Home', component: HomePage },
       { title: 'Order', component: OrderPage },
-      { title: 'QR Code', component: QrcodeScanPage}
+      { title: 'QR Code', component: QrcodeScanPage},
+      { title: 'Logout', component: LoginPage}
     ];
 
   }

@@ -9,6 +9,8 @@ import { OrderPage } from '../pages/order/order';
 import { QrcodeScanPage } from '../pages/qrcode-scan/qrcode-scan';
 import { LoginPage } from '../pages/login/login'; 
 import { UserDataProvider } from '../providers/user-data/user-data';
+import { CheckStatusPage } from '../pages/check-status/check-status';
+
 import { Facebook } from '@ionic-native/facebook';
 
 @Component({
@@ -28,6 +30,7 @@ export class MyApp {
       { title: 'Home', component: HomePage },
       { title: 'Order', component: OrderPage },
       { title: 'QR Code', component: QrcodeScanPage},
+      { title: 'Check Status', component: CheckStatusPage},
     ];
 
   }

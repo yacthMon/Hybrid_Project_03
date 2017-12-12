@@ -3,7 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { MenuController } from 'ionic-angular';
 import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
 import { UserDataProvider } from '../../providers/user-data/user-data';
-import { FirstPage } from '../../pages/first/first';
+import { HomePage } from '../../pages/home/home';
 
 @Component({
   selector: 'page-login',
@@ -37,7 +37,7 @@ export class LoginPage {
       }).catch((err) => {
         console.log("Facebook get Data error ", err);
       });
-      this.navCtrl.setRoot(FirstPage);
+      this.navCtrl.setRoot(HomePage);
     }).catch((err) => {
       console.log("Facebook get Data error ", err);
     });
@@ -46,6 +46,6 @@ export class LoginPage {
   fakeLogin(){
     this.userData.name = "yacth_Mon"
     this.userData.profilePictureURL = "https://scontent.xx.fbcdn.net/v/t1.0-1/p64x64/12043031_955783051127718_3862466570486282121_n.jpg?oh=502c247dd4c2570331db98068f71cf42&oe=5AA10C4E";
-    this.navCtrl.setRoot(FirstPage);
+    this.navCtrl.setRoot(HomePage);
   }
 }

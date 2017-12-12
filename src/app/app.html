@@ -1,21 +1,25 @@
 <ion-menu [content]="content">
-  <ion-header>
+  <!-- <ion-header>
     <ion-toolbar>
       <ion-item>
         <ion-avatar item-start>
           <img src="{{userData.profilePictureURL}}">
-        </ion-avatar>
-        <!-- <ion-thumbnail item-start>
-                <img src="{{userData.profilePictureURL}}">
-            </ion-thumbnail> -->
+        </ion-avatar>        
         <h2>{{userData.name}}</h2>
         <p>KMUTT</p>
       </ion-item>
     </ion-toolbar>
-  </ion-header>
+  </ion-header> -->
 
   <ion-content>
-    <ion-list>
+    <div class="media" text-center>
+      <img class="circle-pic" src="{{userData.profilePictureURL}}">
+    </div>
+    <br>
+    <div class="decName" text-center>{{userData.name}}</div>
+    <br>
+
+    <ion-list no-lines>
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
         {{p.title}}
       </button>

@@ -15,19 +15,21 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
-ion-title {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 0 90px 1px;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-  }
-      .toolbar-background {
-        background-color: black;
-  
-      }
-      .toolbar-title {
-              color: #ffffff !important;
-        }
+
+.circle-pic{
+  width:120px;
+  height:120px;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.media{
+
+margin-top:15px;
+}
+
+.decName{
+font-size: 20px;
+color:#424242;
+}
+

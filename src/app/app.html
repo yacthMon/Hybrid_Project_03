@@ -21,10 +21,10 @@
 
     <ion-list no-lines>
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        {{p.title}}
+        {{p.title}}<hr>
       </button>
       <button menuClose ion-item *ngIf="userData.name" (click)="doLogout()">
-        Logout
+        Logout<hr>
       </button>
     </ion-list>
   </ion-content>

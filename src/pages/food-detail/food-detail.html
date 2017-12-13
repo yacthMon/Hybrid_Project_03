@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Korean Chicken</ion-title>
+    <ion-title>{{menu.nameMenu}}</ion-title>
   </ion-navbar>
  
 </ion-header>
@@ -21,11 +21,11 @@
  
   <div class="carddd">
   	 <span class="textB">Description</span><br>
-  	  <p text-justify class="contentStyle">is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+  	  <p text-justify class="contentStyle">{{menu.detail}}</p>
       <br>
- 	 <span class="textB"> Price 189฿</span>
+ 	 <span class="textB"> Price ${{menu.menuPrice}}</span>
   </div>
-    	
+
  	
 
  
@@ -34,7 +34,7 @@
 
 
   <div class="button-bottom">
-         <button class="button" (click)='goToOrder()'>Order</button>
+         <button class="button" (click)='addOrderes(menu)'>Order</button>
        </div>
 </ion-content>
 

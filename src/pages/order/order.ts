@@ -3,6 +3,15 @@ import {GoogleMapPage} from "../google-map/google-map";
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { UserDataProvider } from "../../providers/user-data/user-data";
+
+import { SelectTypePage } from '../select-type/select-type';
+
+import { Menu, MenuDataProvider,Order } from '../../providers/menu-data/menu-data';
+
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+
+
+
 /**
  * Generated class for the OrderPage page.
  *
@@ -15,31 +24,26 @@ import { UserDataProvider } from "../../providers/user-data/user-data";
   templateUrl: 'order.html',
 })
 export class OrderPage {
-  orderType:string;
-  customerName:string;
-  deliveryLocation:string;
-  deliveryType:string;
-  deliveryDetail:any;
+  
+  result:number=1;
+  orders:Order[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public userData:UserDataProvider) {
-    this.deliveryDetail = {homeNumber:"",landmarks:""}
+  constructor(public c:MenuDataProvider,public navCtrl: NavController, public navParams: NavParams) {
+    this.orders = this.c.getOrder();
   }
 
   ionViewDidLoad() {
-    this.orderType = "restaurant"
-    this.customerName = this.userData.name;
     console.log('ionViewDidLoad OrderPage');
   }
 
-  openGoogleMap(){
-    this.navCtrl.push(GoogleMapPage, {callback: this.getLocation});
+  doPlus(amouts:number){
+    //this.order.amouts=amouts+1;
+  }
+  doMinus(amouts:number){
+    //amouts=amouts-1;
   }
 
-  getLocation = (data)=>{
-    return new Promise((resolve, reject) => {
-      this.deliveryLocation = data;      
-      resolve();
-    });
+  goToTypeOrder(){
+    this.navCtrl.push(SelectTypePage);
   }
-
 }

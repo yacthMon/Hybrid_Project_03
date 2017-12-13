@@ -12,15 +12,35 @@ import { FirstPage } from '../pages/first/first';
 import { CheckStatusPage } from '../pages/check-status/check-status';
 import { FoodDetailPage } from '../pages/food-detail/food-detail';
 import { MenuFoodPage } from '../pages/menu-food/menu-food';
+import { AddmenuPage } from '../pages/addmenu/addmenu';
+import { SelectTypePage } from '../pages/select-type/select-type';
 
 import { Geolocation } from '@ionic-native/geolocation';
 import { Facebook } from '@ionic-native/facebook';
 import { QRScanner } from '@ionic-native/qr-scanner';
 
+import { FormsModule } from '@angular/forms';
+
+import { AngularFireModule } from 'angularfire2' ;
+import { AngularFireDatabaseModule } from 'angularfire2/database' ;
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { UserDataProvider } from '../providers/user-data/user-data';
+import { MenuDataProvider } from '../providers/menu-data/menu-data';
+
+
+
+
+
+export const config = {
+    apiKey: "AIzaSyDLaLKWgZ1yyWFY5ZNW8Oz7FmTXg867dtg",
+    authDomain: "projecthybrid3.firebaseapp.com",
+    databaseURL: "https://projecthybrid3.firebaseio.com",
+    projectId: "projecthybrid3",
+    storageBucket: "projecthybrid3.appspot.com",
+    messagingSenderId: "815119227985"
+  };
 
 @NgModule({
   declarations: [
@@ -33,11 +53,16 @@ import { UserDataProvider } from '../providers/user-data/user-data';
     FirstPage,
     CheckStatusPage,
     FoodDetailPage,
-    MenuFoodPage
+    MenuFoodPage,
+    AddmenuPage,
+    SelectTypePage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(config),
+    AngularFireDatabaseModule,
+    FormsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -50,7 +75,9 @@ import { UserDataProvider } from '../providers/user-data/user-data';
     FirstPage,
     CheckStatusPage,
     FoodDetailPage,
-    MenuFoodPage
+    MenuFoodPage,
+    AddmenuPage,
+    SelectTypePage
   ],
   providers: [
     StatusBar,
@@ -59,7 +86,8 @@ import { UserDataProvider } from '../providers/user-data/user-data';
     QRScanner,
     Facebook,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    UserDataProvider
+    UserDataProvider,
+    MenuDataProvider
   ]
 })
 export class AppModule {}

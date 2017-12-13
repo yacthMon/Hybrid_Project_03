@@ -15,25 +15,24 @@ page-menu-food {
 	.toolbar-title {
 	    color: #757575 !important;
 	}
-
 	.icon {
 		color:#6cbd35;
 	}
 
-	.card-title {
-    position: absolute;
-    top: 36%;
-    font-size: 2.0em;
-    width: 100%;
-    font-weight: bold;
-    color: #fff;
-    
-  }
- 
-    ion-card {
-    position: relative;
-    text-align: center;
-  }
+
+	.content{
+		background-color: #fbfbfb;
+	}
+
+	.item {
+		background-color: #fbfbfb;
+		color: #a2a0a0;
+	}
+	.button{
+    	background-color: #6cbd35;
+    	border: none;
+    	color: white;
+    }
 
 
 

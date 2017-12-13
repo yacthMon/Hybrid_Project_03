@@ -6,18 +6,18 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>login</ion-title>
-  </ion-navbar>
+  
 
 </ion-header>
 
 
-<ion-content padding>
-  <div class="background-image"></div><br><br>
-  <div class="content">
-    <button ion-button (click)="loginFacebook()"> Login with facebook </button>
-    <button ion-button (click)="fakeLogin()"> Fake Login with facebook </button>
-  </div>
+<ion-content class="getstart" scroll="false">
+ 
+    <div class="content">
+    <button class="facebook-btn" ion-button (click)="loginFacebook()"> Login with facebook </button><br>
+    <button class="login-btn" ion-button (click)="fakeLogin()"> Login with email </button>
+    </div>
 
 </ion-content>
+
+

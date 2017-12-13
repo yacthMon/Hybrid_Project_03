@@ -11,78 +11,41 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Order</ion-title>
+
   </ion-navbar>
-  <ion-segment [(ngModel)]="orderType" color="primary">
-    <ion-segment-button value="restaurant">
-      At restaurant
-    </ion-segment-button>
-    <ion-segment-button value="delivery">
-      Delivery
-    </ion-segment-button>
-  </ion-segment>
+  
 </ion-header>
 
 <ion-content padding>
-  <ion-card *ngIf="orderType=='delivery'">
-    <ion-card-content>
-      <h2>สถานที่จัดส่งสินค้า</h2>
-      <ion-segment [(ngModel)]="deliveryType" color="primary">
-        <ion-segment-button value="googleMap" (click)="openGoogleMap()">
-          Google Map
-        </ion-segment-button>
-        <ion-segment-button value="manual">
-          กรอกด้วยตัวเอง
-        </ion-segment-button>
-      </ion-segment>
+  
 
-      <div *ngIf="deliveryType=='googleMap'">
-        <div *ngIf="deliveryLocation">
-          <ion-item>
-            <ion-label floating>Location from google map</ion-label>
-            <ion-textarea ion-textarea rows="5" type="text" [(ngModel)]="deliveryLocation" ></ion-textarea>
-          </ion-item>
-          <ion-item>
-            <ion-label floating>บ้านเลขที่</ion-label>
-            <ion-input type="text" [(ngModel)]="deliveryDetail.homeNumber" ></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label floating>จุดสังเกต</ion-label>
-            <ion-textarea ion-textarea rows="2" type="text" [(ngModel)]="deliveryDetail.landmarks" ></ion-textarea>
-          </ion-item>
-        </div>
-      </div>
+<ion-card  *ngFor="let order of orders">
+ 
+<ion-grid no-padding>
+  <ion-row>
+    <ion-col col-5><img src="../../assets/imgs/cake02.jpg" ></ion-col>
+    <ion-col col-7>
 
-      <div *ngIf="deliveryType=='manual'">
-        <ion-item>
-          <ion-label floating>ที่อยู่</ion-label>
-          <ion-textarea ion-textarea rows="5" type="text" ></ion-textarea>
-        </ion-item>
-        <ion-item>
-          <ion-label floating>บ้านเลขที่</ion-label>
-          <ion-input type="text" [(ngModel)]="deliveryDetail.homeNumber" ></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label floating>จุดสังเกต</ion-label>
-          <ion-textarea ion-textarea rows="2" type="text" [(ngModel)]="deliveryDetail.landmarks" ></ion-textarea>
-        </ion-item>
-      </div>
-    </ion-card-content>
-  </ion-card>
+<div class="outma">
+  <span class="title"> {{order.nameMenu}} </span>
 
+  <span class="price"> {{order.menuPrice}}฿</span> x  {{order.amout}} <br>
 
+    <button ion-button class="btn-Plus" (click)="doPlus(order.amout)">+</button>
 
-  <ion-card>
-    <ion-card-content>
-      <ion-item>
-        <ion-label floating>ชื่อลูกค้า</ion-label>
-        <ion-input [(ngModel)]="customerName" type="text" value=""></ion-input>
-      </ion-item>
+    <button ion-button class="btn-Minus" (click)="doMinus(order.amout)">-</button>
+      
+</div>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+ 
+ </ion-card>
 
-    </ion-card-content>
-  </ion-card>
+ <div text-center class="total"><br><br>Total : $ 18.75</div>
+<div class="button-bottom">
 
-  <ion-footer>
-    <button ion-button class="button-bottom">สั่งสินค้า</button>
-  </ion-footer>
+         <button class="button-dd" (click)="goToTypeOrder()" >  Proceed To Checkout</button>
+       </div>
 
 </ion-content>

@@ -2,6 +2,10 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 import {FoodDetailPage} from '../food-detail/food-detail';
+import { Menu, MenuDataProvider } from '../../providers/menu-data/menu-data';
+
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+
 
 /**
  * Generated class for the MenuFoodPage page.
@@ -16,15 +20,24 @@ import {FoodDetailPage} from '../food-detail/food-detail';
 })
 export class MenuFoodPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  menues:FirebaseListObservable<any[]>;
+  constructor(public angularfire: AngularFireDatabase,public navCtrl: NavController, public navParams: NavParams, public c:MenuDataProvider) {
+     this.menues=c.getMenu();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MenuFoodPage');
   }
 
-  goFoodDetail(){
-  	this.navCtrl.push(FoodDetailPage);
+  goFoodDetail(menu:Menu){
+  	this.navCtrl.push(FoodDetailPage,{menues:menu});
   }
+
+  goBack() {
+   this.navCtrl.pop();
+   console.log('Click on button Test Console Log');
+  }
+
+
 
 }

@@ -10,6 +10,10 @@ import { QrcodeScanPage } from '../pages/qrcode-scan/qrcode-scan';
 import { LoginPage } from '../pages/login/login'; 
 import { UserDataProvider } from '../providers/user-data/user-data';
 import { CheckStatusPage } from '../pages/check-status/check-status';
+import { AddmenuPage } from '../pages/addmenu/addmenu';
+import { SelectTypePage } from '../pages/select-type/select-type';
+
+
 
 import { Facebook } from '@ionic-native/facebook';
 
@@ -31,6 +35,8 @@ export class MyApp {
       { title: 'Order', component: OrderPage },
       { title: 'QR Code', component: QrcodeScanPage},
       { title: 'Check Status', component: CheckStatusPage},
+      { title: 'Add menu', component: AddmenuPage},
+      { title: 'Order2', component: SelectTypePage}
     ];
 
   }

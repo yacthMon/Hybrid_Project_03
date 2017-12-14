@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner';
-
+import { ToastController } from 'ionic-angular';
+import { Toast } from 'ionic-angular/components/toast/toast';
 /**
  * Generated class for the QrcodeScanPage page.
  *
@@ -14,9 +15,9 @@ import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner';
   templateUrl: 'qrcode-scan.html',
 })
 export class QrcodeScanPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, private qrScanner: QRScanner) {
-
+  callbackToPrevious: any;
+  constructor(public navCtrl: NavController, public navParams: NavParams, private qrScanner: QRScanner, private toastCtrl:ToastController) {
+    this.callbackToPrevious = this.navParams.get('callback');
   }
 
   ionViewDidLoad() {
@@ -24,24 +25,32 @@ export class QrcodeScanPage {
     this.qrScanner.prepare()
       .then((status: QRScannerStatus) => {
         if (status.authorized) {
-          let scanSub = this.qrScanner.scan().subscribe((text: string) => {
-            console.log('Scanned something', text);
-
-            this.qrScanner.hide(); // hide camera preview
-            scanSub.unsubscribe(); // stop scanning
-          });
-          this.qrScanner.resumePreview();
+          //this.qrScanner.resumePreview();
           // show camera preview
           this.qrScanner.show()
             .then((data: QRScannerStatus) => {
-              console.log('datashowing', data.showing);
-              //alert(data.showing);
+              console.log('datashowing', data.showing);              
             }, err => {
               console.log(err);
-
             });
-
-          // wait for user to scan something, then the observable callback will be called
+            // wait for user to scan something, then the observable callback will be called
+            let scanSub = this.qrScanner.scan().subscribe((text: string) => {
+              console.log('Scanned something', text);
+              if(text.indexOf("table") > -1){
+                this.qrScanner.hide(); // hide camera preview
+                scanSub.unsubscribe(); // stop scanning
+                this.callbackToPrevious(text).then((() => { this.navCtrl.pop() }));
+              }else{
+                let toast = this.toastCtrl.create({
+                  message: 'QR Code ไม่ตรงกับโต๊ะของร้าน',
+                  duration: 3000,
+                  position: 'top',
+                  showCloseButton: true
+                });
+                toast.present();
+              }            
+            });
+          
 
         } else if (status.denied) {
           console.log("access denied")
@@ -56,4 +65,7 @@ export class QrcodeScanPage {
       .catch((e: any) => console.log('Error is', e));
   }
 
+  cancleScan(){
+    this.navCtrl.pop();
+  }
 }

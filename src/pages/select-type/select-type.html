@@ -11,7 +11,7 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Order</ion-title>
-    
+
   </ion-navbar>
   <ion-segment [(ngModel)]="orderType" color="primary">
     <ion-segment-button value="restaurant">
@@ -40,15 +40,15 @@
         <div *ngIf="deliveryLocation">
           <ion-item>
             <ion-label floating>Location from google map</ion-label>
-            <ion-textarea ion-textarea rows="5" type="text" [(ngModel)]="deliveryLocation" ></ion-textarea>
+            <ion-textarea ion-textarea rows="5" type="text" [(ngModel)]="deliveryLocation"></ion-textarea>
           </ion-item>
           <ion-item>
             <ion-label floating>บ้านเลขที่</ion-label>
-            <ion-input type="text" [(ngModel)]="deliveryDetail.homeNumber" ></ion-input>
+            <ion-input type="text" [(ngModel)]="deliveryDetail.homeNumber"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label floating>จุดสังเกต</ion-label>
-            <ion-textarea ion-textarea rows="2" type="text" [(ngModel)]="deliveryDetail.landmarks" ></ion-textarea>
+            <ion-textarea ion-textarea rows="2" type="text" [(ngModel)]="deliveryDetail.landmarks"></ion-textarea>
           </ion-item>
         </div>
       </div>
@@ -56,21 +56,30 @@
       <div *ngIf="deliveryType=='manual'">
         <ion-item>
           <ion-label floating>ที่อยู่</ion-label>
-          <ion-textarea ion-textarea rows="5" type="text" ></ion-textarea>
+          <ion-textarea ion-textarea rows="5" type="text"></ion-textarea>
         </ion-item>
         <ion-item>
           <ion-label floating>บ้านเลขที่</ion-label>
-          <ion-input type="text" [(ngModel)]="deliveryDetail.homeNumber" ></ion-input>
+          <ion-input type="text" [(ngModel)]="deliveryDetail.homeNumber"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label floating>จุดสังเกต</ion-label>
-          <ion-textarea ion-textarea rows="2" type="text" [(ngModel)]="deliveryDetail.landmarks" ></ion-textarea>
+          <ion-textarea ion-textarea rows="2" type="text" [(ngModel)]="deliveryDetail.landmarks"></ion-textarea>
         </ion-item>
       </div>
     </ion-card-content>
   </ion-card>
-
-
+  <div *ngIf="orderType=='restaurant'" text-center>
+    <button ion-button icon-start (click)="scanTable()">
+      <ion-icon name="qr-scanner"></ion-icon>
+      Scan barcode บนโต๊ะ
+    </button>
+    <ion-card *ngIf="table_no">
+      <ion-item>
+        โต๊ะ {{table_no}}
+      </ion-item>
+    </ion-card>
+  </div>
 
   <ion-card>
     <ion-card-content>

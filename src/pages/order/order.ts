@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 import { SelectTypePage } from '../select-type/select-type';
+import { MenuFoodPage} from '../menu-food/menu-food';
 
 import { MenuDataProvider,Order, Menu } from '../../providers/menu-data/menu-data';
 
@@ -52,5 +53,8 @@ export class OrderPage {
 
   goToTypeOrder(){
     this.navCtrl.push(SelectTypePage);
+  }
+  goToMenu(){
+    this.navCtrl.setRoot(MenuFoodPage, {},{animate: true, direction: 'forward'});
   }
 }

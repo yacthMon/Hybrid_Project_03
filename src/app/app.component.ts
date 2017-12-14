@@ -33,10 +33,9 @@ export class MyApp {
     this.pages = [
       { title: 'Home', component: HomePage },
       { title: 'Order', component: OrderPage },
-      { title: 'QR Code', component: QrcodeScanPage},
       { title: 'Check Status', component: CheckStatusPage},
       { title: 'Add menu', component: AddmenuPage},
-      { title: 'Order2', component: SelectTypePage}
+      { title: 'QR', component: QrcodeScanPage},
     ];
 
   }

@@ -40,13 +40,13 @@
     </ion-grid>
 
   </ion-card>
-
   <div text-center class="total">
     <br>
-    <br>Total : ฿ {{balance}}</div>
+    <br>{{orders.length==0?"No order yet":"Total : ฿ " + balance}}
+  </div>
   <div class="button-bottom">
-
-    <button class="button-dd" (click)="goToTypeOrder()"> Proceed To Checkout</button>
+    <button *ngIf="orders.length>0" class="button-dd" (click)="goToTypeOrder()"> Proceed To Checkout</button>
+    <button *ngIf="orders.length==0" class="button-dd" (click)="goToMenu()"> Go to menu</button>
   </div>
 
 </ion-content>

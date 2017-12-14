@@ -3,8 +3,8 @@ import { NavController, NavParams } from 'ionic-angular';
 
 import { OrderPage } from '../order/order';
 
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
-import { Menu, MenuDataProvider, Order } from '../../providers/menu-data/menu-data';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { MenuDataProvider, Order } from '../../providers/menu-data/menu-data';
 
 
 /**

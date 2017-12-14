@@ -45,7 +45,7 @@ export class LoginPage {
 
   fakeLogin(){
     this.userData.name = "yacth_Mon"
-    this.userData.profilePictureURL = "../../assets/imgs/avartar.jpg";
-    this.navCtrl.setRoot(HomePage);
+    this.userData.profilePictureURL = "./assets/imgs/avartar.jpg";
+    this.navCtrl.setRoot(HomePage, {},{animate: true, direction: 'forward'});
   }
 }

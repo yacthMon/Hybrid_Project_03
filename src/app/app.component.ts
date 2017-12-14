@@ -55,6 +55,17 @@ export class MyApp {
   }
 
   doLogout(){
+    if(this.userData.name == "yacth_Mon"){
+      let toast = this.toastCtrl.create({
+        message: 'Logout จากระบบเรียบร้อย',
+        duration: 2000,
+        position: 'bottom',
+        showCloseButton: true
+      });
+      toast.present();
+      this.nav.setRoot(LoginPage);
+    }
+
     this.fb.logout().then(()=>{
       let toast = this.toastCtrl.create({
         message: 'Logout จากระบบเรียบร้อย',

@@ -37,7 +37,8 @@ export class GoogleMapPage {
     let latLng = new google.maps.LatLng(13.652516, 100.493703);
     let mapOptions = {
       center: new google.maps.LatLng(13.651960, 100.495096),
-      zoom: 6
+      zoom: 6,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
     }
     this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
     this.geolocation.getCurrentPosition({ timeout: 10000, enableHighAccuracy: true }).then((position) => {

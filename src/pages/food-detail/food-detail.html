@@ -9,33 +9,20 @@
   <ion-navbar>
     <ion-title>{{menu.nameMenu}}</ion-title>
   </ion-navbar>
- 
+
 </ion-header>
 
 
 <ion-content>
- 
-   
-    <img src="../../assets/imgs/{{menu.nameImg}}" style="width : 100% ; height : 50%">
-  
- {{menu.nameImg}}
+  <img src="./assets/imgs/{{menu.nameImg}}" style="width : 100% ; height : 50%"> {{menu.nameImg}}
   <div class="carddd">
-  	 <span class="textB">Description</span><br>
-  	  <p text-justify class="contentStyle">{{menu.detail}} </p>
-      <br>
- 	 <span class="textB"> Price ${{menu.menuPrice}}</span>
-  
+    <span class="textB">Description</span>
+    <br>
+    <p text-justify class="contentStyle">{{menu.detail}} </p>
+    <br>
+    <span class="textB"> Price $ {{menu.menuPrice}}</span>
   </div>
-
- 	
-
- 
-
-
-
-
   <div class="button-bottom">
-         <button class="button" (click)='addOrderes(menu)'>Order</button>
-       </div>
+    <button class="button" (click)='addOrderes(menu)'>Order</button>
+  </div>
 </ion-content>
-

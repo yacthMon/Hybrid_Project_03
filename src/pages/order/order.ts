@@ -38,7 +38,7 @@ export class OrderPage {
   }
 
   doPlus(amouts:number){
-    this.result=this.c.orders.amouts+1;
+    this.result += 1;
   }
   doMinus(amouts:number){
     //amouts=amouts-1;

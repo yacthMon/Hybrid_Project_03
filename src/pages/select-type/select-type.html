@@ -75,8 +75,13 @@
       Scan barcode บนโต๊ะ
     </button>
     <ion-card *ngIf="table_no">
+      <ion-card-header>
+        รายละเอียดโต๊ะ
+      </ion-card-header>
       <ion-item>
-        โต๊ะ {{table_no}}
+        <ion-card-content>
+          <h2>โต๊ะ {{table_no}} </h2>
+        </ion-card-content>        
       </ion-item>
     </ion-card>
   </div>
@@ -92,7 +97,7 @@
   </ion-card>
 
   <ion-footer>
-    <button ion-button class="button-bottom">สั่งสินค้า</button>
+    <button ion-button full outline class="button-bottom">สั่งสินค้า</button>
   </ion-footer>
 
 </ion-content>

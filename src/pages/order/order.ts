@@ -3,7 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 
 import { SelectTypePage } from '../select-type/select-type';
 
-import { MenuDataProvider,Order } from '../../providers/menu-data/menu-data';
+import { MenuDataProvider,Order, Menu } from '../../providers/menu-data/menu-data';
 
 
 
@@ -18,32 +18,37 @@ import { MenuDataProvider,Order } from '../../providers/menu-data/menu-data';
   selector: 'page-order',
   templateUrl: 'order.html',
 })
-export class OrderPage {
+export class OrderPage {  
   
-  result:number=1;
   orders:Order[];
-  balance:number =0;
+  balance:number;
 
-  constructor(public c:MenuDataProvider,public navCtrl: NavController, public navParams: NavParams) {
-    this.orders = this.c.getOrder();
+  constructor(public menuData:MenuDataProvider,public navCtrl: NavController, public navParams: NavParams) {
+    this.orders = this.menuData.getOrder();
+    this.getTotal();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad OrderPage');
   }
 
-  doPlus(amouts:number){
-    this.result += 1;
+  doPlus(order:Order){
+    order.amout += 1;
+    this.getTotal();
   }
-  doMinus(amouts:number){
-    //amouts=amouts-1;
+
+  doMinus(order:Order){
+    order.amout -= 1;
+    if(order.amout == 0){
+      this.menuData.removeOrder(order);
+    }
+    this.getTotal();
   }
 
   getTotal(){
-    this.balance =this.c.calTotal();
+    console.log("Renew balance");
+    this.balance = this.menuData.calTotal();
   }
-
-
 
   goToTypeOrder(){
     this.navCtrl.push(SelectTypePage);

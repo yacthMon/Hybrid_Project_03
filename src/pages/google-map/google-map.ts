@@ -3,7 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 
-declare var google;
+declare let google:any;
 /**
  * Generated class for the GoogleMapPage page.
  *
@@ -36,20 +36,19 @@ export class GoogleMapPage {
     console.log("start load map");
     let latLng = new google.maps.LatLng(13.652516, 100.493703);
     let mapOptions = {
-      center: latLng,
-      zoom: 17,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
+      center: new google.maps.LatLng(13.651960, 100.495096),
+      zoom: 6
     }
-    this.geolocation.getCurrentPosition({ timeout: 10000, enableHighAccuracy: true }).then((position) => {
-      console.log("Pass");
-      latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-      mapOptions.center = latLng;
-      this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
-    },(err) => {
-      console.log("Not Pass");
-      console.log(err);
-      this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
-    });
+    this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
+    // this.geolocation.getCurrentPosition({ timeout: 10000, enableHighAccuracy: true }).then((position) => {
+    //   mapOptions.zoom = 17;
+    //   latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+    //   mapOptions.center = latLng;
+    //   this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
+    // },(err) => {
+    //   console.log("Geolocation Not Pass");
+    //   console.log(err);
+    // });
 
     // let mapOptions = {
     //   center: latLng,

@@ -21,7 +21,7 @@ import { MenuDataProvider, Order } from '../../providers/menu-data/menu-data';
 export class FoodDetailPage {
 
   menu: Order;
-  constructor(public c: MenuDataProvider,public angularfire: AngularFireDatabase,public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public menuData: MenuDataProvider,public angularfire: AngularFireDatabase,public navCtrl: NavController, public navParams: NavParams) {
     this.menu = this.navParams.get('menues');
   }
 
@@ -34,7 +34,7 @@ export class FoodDetailPage {
   }
 
   addOrderes(menu: Order){
-     this.c.addOrder({nameMenu:menu.nameMenu,nameImg:menu.nameImg,menuPrice:menu.menuPrice,amout:1});
+     this.menuData.addOrder({nameMenu:menu.nameMenu,nameImg:menu.nameImg,menuPrice:menu.menuPrice,amout:1});
     this.navCtrl.setRoot(OrderPage);
   }
 

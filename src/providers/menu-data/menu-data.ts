@@ -31,7 +31,6 @@ export class MenuDataProvider {
   orders: Order[]=[];
   constructor(public angularfire: AngularFireDatabase) {
  	this.menuList = angularfire.list('/menuList');
-    console.log('Hello MenuDataProvider Provider');
   }
 
   addMenu(menu:Menu){
@@ -50,11 +49,16 @@ export class MenuDataProvider {
     this.orders.push(order);
   }
 
-  calTotal(): number{
-    let total = 0;
-
-    return total;
+  removeOrder(order: Order){    
+    this.orders.splice(this.orders.indexOf(order), 1);    
   }
 
+  calTotal(): number{
+    let total:number = 0;
+    for(let i=0;i<this.orders.length;i++){
+      total += parseInt(this.orders[i].menuPrice+"")*(this.orders[i].amout);
+    }
+    return total;
+  }
 
 }

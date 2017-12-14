@@ -8,7 +8,6 @@ import { OrderPage } from '../pages/order/order';
 import { GoogleMapPage } from '../pages/google-map/google-map';
 import { QrcodeScanPage } from '../pages/qrcode-scan/qrcode-scan'
 import { LoginPage } from '../pages/login/login'; 
-import { FirstPage } from '../pages/first/first';
 import { CheckStatusPage } from '../pages/check-status/check-status';
 import { FoodDetailPage } from '../pages/food-detail/food-detail';
 import { MenuFoodPage } from '../pages/menu-food/menu-food';
@@ -50,7 +49,6 @@ export const config = {
     GoogleMapPage,
     QrcodeScanPage,
     LoginPage,
-    FirstPage,
     CheckStatusPage,
     FoodDetailPage,
     MenuFoodPage,
@@ -72,7 +70,6 @@ export const config = {
     GoogleMapPage,
     QrcodeScanPage,
     LoginPage,
-    FirstPage,
     CheckStatusPage,
     FoodDetailPage,
     MenuFoodPage,

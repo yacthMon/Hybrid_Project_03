@@ -37,7 +37,7 @@ export class LoginPage {
       }).catch((err) => {
         console.log("Facebook get Data error ", err);
       });
-      this.navCtrl.setRoot(HomePage);
+      this.navCtrl.setRoot(HomePage, {},{animate: true, direction: 'forward'});
     }).catch((err) => {
       console.log("Facebook get Data error ", err);
     });

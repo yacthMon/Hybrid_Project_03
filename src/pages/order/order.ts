@@ -55,6 +55,6 @@ export class OrderPage {
     this.navCtrl.push(SelectTypePage);
   }
   goToMenu(){
-    this.navCtrl.setRoot(MenuFoodPage, {},{animate: true, direction: 'forward'});
+    this.navCtrl.push(MenuFoodPage);
   }
 }

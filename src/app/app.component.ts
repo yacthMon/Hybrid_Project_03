@@ -35,7 +35,6 @@ export class MyApp {
       { title: 'Order', component: OrderPage },
       { title: 'Check Status', component: CheckStatusPage},
       { title: 'Add menu', component: AddmenuPage},
-      { title: 'QR', component: QrcodeScanPage},
     ];
 
   }

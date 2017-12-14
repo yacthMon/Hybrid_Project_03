@@ -23,18 +23,17 @@
  
 <ion-grid no-padding>
   <ion-row>
-    <ion-col col-5><img src="../../assets/imgs/cake02.jpg" ></ion-col>
+    <ion-col col-5><img src="../../assets/imgs/{{order.nameImg}}" ></ion-col>
     <ion-col col-7>
 
 <div class="outma">
-  <span class="title"> {{order.nameMenu}} </span>
+  <span class="title"> {{order.nameMenu}} </span><br>
 
-  <span class="price"> {{order.menuPrice}}฿</span> x  {{order.amout}} <br>
+  <span class="price"> {{order.menuPrice}}฿</span> x  {{result}} 
+    <button ion-button  small (click)="doPlus(order.amout)">+</button>
+    <button ion-button small (click)="doMinus(order.amout)">-</button>
 
-    <button ion-button class="btn-Plus" (click)="doPlus(order.amout)">+</button>
-
-    <button ion-button class="btn-Minus" (click)="doMinus(order.amout)">-</button>
-      
+   
 </div>
     </ion-col>
   </ion-row>
@@ -42,7 +41,7 @@
  
  </ion-card>
 
- <div text-center class="total"><br><br>Total : $ 18.75</div>
+ <div text-center class="total"><br><br>Total : ฿ 18.75</div>
 <div class="button-bottom">
 
          <button class="button-dd" (click)="goToTypeOrder()" >  Proceed To Checkout</button>

@@ -27,6 +27,7 @@ export class OrderPage {
   
   result:number=1;
   orders:Order[];
+  balance:number =0;
 
   constructor(public c:MenuDataProvider,public navCtrl: NavController, public navParams: NavParams) {
     this.orders = this.c.getOrder();
@@ -37,11 +38,17 @@ export class OrderPage {
   }
 
   doPlus(amouts:number){
-    //this.order.amouts=amouts+1;
+    this.result=this.c.orders.amouts+1;
   }
   doMinus(amouts:number){
     //amouts=amouts-1;
   }
+
+  getTotal(){
+    this.balance =this.c.calTotal();
+  }
+
+
 
   goToTypeOrder(){
     this.navCtrl.push(SelectTypePage);

@@ -9,7 +9,7 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
   See https://angular.io/guide/dependency-injection for more info on providers
   and Angular DI.
 */
-
+ 
 export class Menu {
 	nameMenu:string;
 	detail:string;
@@ -19,7 +19,7 @@ export class Menu {
 
 export class Order{
   nameMenu:string;
-  detail:string;
+  nameImg:string;
   menuPrice:number;
   amout:number;
 }
@@ -50,5 +50,12 @@ export class MenuDataProvider {
   addOrder(order: Order){
     this.orders.push(order);
   }
+
+  calTotal(): number{
+    let total = 0;
+
+    return total;
+  }
+
 
 }

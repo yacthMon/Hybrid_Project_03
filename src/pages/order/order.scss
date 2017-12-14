@@ -24,24 +24,23 @@ page-order {
       margin:5px;
      } 
     .title{
-        font-size: 17pt;
+        font-size: 12pt;
         width: 100%;
         font-weight: bold;
     }
     .price{
-        font-size: 14pt;
+        font-size: 10pt;
         width: 100%;
         font-weight: bold;
         color:#6cbd35;
     }
 
     .btn-Plus{
-        margin-left:19px;
-        margin-top:-10px;
+        //margin-left:19px;
+        //margin-top:-10px;
         background-color: #6cbd35;
     }
-    .btn-Minus{
-        margin-top:-10px;
+    .btn-PM{
         background-color: #6cbd35;
     }
 
@@ -68,6 +67,10 @@ page-order {
     font-size: 20px;
     margin: 2px 2px;
     cursor: pointer;
+    }
+
+    .button{
+     background-color: #6cbd35;
     }
 
     .total{

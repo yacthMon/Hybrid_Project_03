@@ -34,7 +34,7 @@ export class FoodDetailPage {
   }
 
   addOrderes(menu: Order){
-    this.c.addOrder({nameMenu:menu.nameMenu,detail:menu.detail,menuPrice:menu.menuPrice,amout:1});
+     this.c.addOrder({nameMenu:menu.nameMenu,nameImg:menu.nameImg,menuPrice:menu.menuPrice,amout:1});
     this.navCtrl.setRoot(OrderPage);
   }
 

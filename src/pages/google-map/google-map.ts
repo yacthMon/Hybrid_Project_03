@@ -21,10 +21,10 @@ export class GoogleMapPage {
   map: any;
   marker: any;
   selectedPosition: any;
-  callback: any;
+  callbackToPrevious: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private geolocation: Geolocation, private toastCtrl: ToastController) {
-    this.callback = this.navParams.get('callback');
+    this.callbackToPrevious = this.navParams.get('callback');
   }
 
   ionViewDidLoad() {
@@ -40,15 +40,15 @@ export class GoogleMapPage {
       zoom: 6
     }
     this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
-    // this.geolocation.getCurrentPosition({ timeout: 10000, enableHighAccuracy: true }).then((position) => {
-    //   mapOptions.zoom = 17;
-    //   latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-    //   mapOptions.center = latLng;
-    //   this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
-    // },(err) => {
-    //   console.log("Geolocation Not Pass");
-    //   console.log(err);
-    // });
+    this.geolocation.getCurrentPosition({ timeout: 10000, enableHighAccuracy: true }).then((position) => {
+      mapOptions.zoom = 17;
+      latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+      mapOptions.center = latLng;
+      this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
+    },(err) => {
+      console.log("Geolocation Not Pass");
+      console.log(err);
+    });
 
     // let mapOptions = {
     //   center: latLng,
@@ -69,7 +69,7 @@ export class GoogleMapPage {
     });
     this.selectedPosition = { lat: this.map.getCenter().lat(), lng: this.map.getCenter().lng() };
     let content = "ส่งของที่นี่";
-    //this.callback("Test Data").then(()=>{this.navCtrl.pop()})
+    //this.callbackToPrevious("Test Data").then(()=>{this.navCtrl.pop()})
     this.addInfoWindow(this.marker, content);
   }
 
@@ -90,7 +90,7 @@ export class GoogleMapPage {
           if (results[0]) {
             console.log(results[0]);
             console.log();
-            this.callback(results[0].formatted_address).then((() => { this.navCtrl.pop() }));
+            this.callbackToPrevious(results[0].formatted_address).then((() => { this.navCtrl.pop() }));
           } else {
             window.alert('No results found');
           }

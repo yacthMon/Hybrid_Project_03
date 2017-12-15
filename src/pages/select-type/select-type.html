@@ -96,8 +96,11 @@
     </ion-card-content>
   </ion-card>
 
-  <ion-footer>
-    <button ion-button full outline class="button-bottom" (click)="confirmOrder()">สั่งสินค้า</button>
+  <ion-footer  *ngIf="orderType=='delivery'">
+    <button ion-button full [disabled]="deliveryLocation==''" outline class="button-bottom" (click)="confirmOrder()">สั่งสินค้า</button>
+  </ion-footer>
+  <ion-footer *ngIf="orderType=='restaurant'">
+    <button ion-button full [disabled]="table_no==''" outline class="button-bottom" (click)="confirmOrder()">สั่งรายการ</button>
   </ion-footer>
 
 </ion-content>

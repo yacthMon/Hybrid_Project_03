@@ -25,7 +25,7 @@ export class SelectTypePage {
   deliveryLocation:string = "";
   deliveryType:string;
   deliveryDetail:any = "";
-  table_no:string;
+  table_no:string="";
   constructor(public navCtrl: NavController, public navParams: NavParams, public userData:UserDataProvider, public menuData:MenuDataProvider, public toastCtrl:ToastController) {
     this.deliveryDetail = {homeNumber:"",landmarks:""}
   }
